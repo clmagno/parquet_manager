@@ -9,14 +9,14 @@ configuring INSERT / UPDATE / DELETE operations per column.
 
 ### Option A — Auto-install (recommended)
 ```
-python parquet_admin.py
+python admin.py
 ```
 The script detects and installs `flask` and `pyarrow` automatically on first run.
 
 ### Option B — Manual install
 ```
 pip install -r requirements.txt
-python parquet_admin.py
+python admin.py
 ```
 
 The browser opens automatically at **http://localhost:5500**.  
@@ -62,10 +62,10 @@ Preview up to 300 rows with colour-coded operation badges, filter by op type, th
 
 ```
 pip install pyinstaller
-pyinstaller --onefile parquet_admin.py
+pyinstaller --onefile admin.py
 ```
 
-The resulting `dist/parquet_admin` (or `.exe` on Windows) runs without Python installed.
+The resulting `dist/admin` (or `.exe` on Windows) runs without Python installed.
 
 ---
 
