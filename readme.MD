@@ -19,7 +19,7 @@ Drag-and-drop your `.parquet` files directly into the browser. Processing happen
 ### Step 2: Interactive Data Grid
 A full-featured editor with global search, inline cell editing, and instant local saving.
 
-![Interactive Data Grid](https://drive.google.com/uc?export=view&id=1RQ7HqrNvqTnsFKfz35BLAOfMK2WCwjb_)
+![Interactive Data Grid](https://drive.google.com/uc?export=view&id=1RQ7HqrNvqTnsFKfz35BLAOfMK2WCwjb)
 
 ---
 
