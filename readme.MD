@@ -14,7 +14,7 @@ The **Parquet CRUD Editor** is a lightweight, web-based administrative tool desi
 ### Step 1: Secure Local Upload
 Drag-and-drop your `.parquet` files directly into the browser. Processing happens entirely on your local machine.
 
-https://drive.google.com/file/d/1Cl5HVUAaNXBRfWO44NnZlYRQ5tbKBhr0/view?usp=drive_link
+!https://drive.google.com/file/d/1Cl5HVUAaNXBRfWO44NnZlYRQ5tbKBhr0/view?usp=drive_link
 
 ### Step 2: Interactive Data Grid
 A full-featured editor with global search, inline cell editing, and instant local saving.
