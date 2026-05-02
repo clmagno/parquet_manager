@@ -1,45 +1,59 @@
-This README provides a comprehensive overview and user guide for the **Parquet CRUD Editor**, a specialized utility developed for data professionals who need to perform rapid, local modifications to Parquet datasets without complex ETL pipelines.
+Here is the updated, professionally formatted README for your **Parquet CRUD Editor**. It is designed to be copy-paste ready and includes the specific screenshots and features you've implemented.
 
----
+***
 
 # Parquet CRUD Editor
-**Streamlined Data Manipulation for Parquet Files**
+**A Professional Data Manipulation Utility for Engineers & Analysts**
 
-The **Parquet CRUD Editor** is a lightweight, web-based administrative tool designed to provide a "spreadsheet-like" interface for Parquet files[cite: 1]. It allows for real-time data editing, searching, and local persistence, making it an ideal choice for Data Engineers and Analysts performing data cleaning or manual record updates.
-
-## Key Features
-
-*   **Interactive Data Grid**: Perform inline editing by clicking directly on any cell. Changes are updated in the application state instantly.
-*   **Full CRUD Support**: 
-    *   **Insert**: Add new rows to the top of the dataset.
-    *   **Update**: Modify existing record values with automatic type coercion.
-    *   **Delete**: Remove specific rows from the dataset with a single click.
-*   **Global Search**: A debounced, real-time search bar that filters across all columns simultaneously to locate specific records quickly.
-*   **Local Overwrite (Save)**: A "Save" function that writes modified data directly back to the local directory, bypassing the need for repeated browser downloads.
-*   **Multi-Format Export**: Export the final dataset back to `.parquet`, or generate `SQL` (INSERT statements) and `JSON` versions for database migrations[cite: 1].
+The **Parquet CRUD Editor** is a lightweight, web-based administrative tool designed to provide a "spreadsheet-like" interface for Parquet files[cite: 1]. It empowers Data Engineers and Analysts to perform rapid, manual modifications to datasets without the overhead of complex ETL pipelines or notebook environments.
 
 ---
 
-## Technical Architecture
+## 📸 Screenshots
 
-The tool is built on a modern, "zero-config" stack designed to run locally on any machine with Python installed.
+### Step 1: Secure Local Upload
+Drag-and-drop your `.parquet` files directly into the browser. Processing happens entirely on your local machine.
 
-### Dependencies & Bootstrapping
-The application includes a built-in dependency manager that checks for and installs required libraries upon execution[cite: 1]:
-*   **Flask**: Powers the web server and API routing[cite: 1].
-*   **PyArrow**: Handles the heavy lifting of reading, writing, and manipulating Parquet tables[cite: 1].
+!([https://r2.erweima.ai/i/9e67d268-7f9f-4318-971c-4299c011e405.png](https://r2.erweima.ai/i/9e67d268-7f9f-4318-971c-4299c011e405.png))
 
-### Workflow
-1.  **File Parsing**: The tool reads the `.parquet` file into a PyArrow Table and converts it to a Python list of dictionaries for the UI[cite: 1].
-2.  **Schema Awareness**: It automatically detects column names and data types (e.g., `int64`, `string`, `double`) from the Parquet metadata[cite: 1].
-3.  **In-Memory State**: Edits are held in an in-memory store until a "Save" or "Export" command is triggered.
+### Step 2: Interactive Data Grid
+A full-featured editor with global search, inline cell editing, and instant local saving.
+
+!([https://r2.erweima.ai/i/6c859d0a-9d9f-474d-949e-b98a0c201405.png](https://r2.erweima.ai/i/6c859d0a-9d9f-474d-949e-b98a0c201405.png))
 
 ---
 
-## Quick Start Guide
+## 🚀 Key Features
+
+*   **Interactive Inline Editing**: Click any cell to modify values instantly. The application handles type coercion (integers, floats, strings) automatically[cite: 1].
+*   **Full CRUD Support**:
+    *   **Add Row**: Inject new, empty records at the top of your dataset[cite: 1].
+    *   **Delete**: Remove specific records with a single click[cite: 1].
+*   **💾 Save (Overwrite Local)**: **(New)** Overwrite the source file directly in your working directory, allowing for an "instant refresh" workflow without repeated downloads[cite: 1].
+*   **🔍 Global Search**: A high-performance, debounced search bar that filters across all columns simultaneously as you type[cite: 1].
+*   **⬇️ Multi-Format Export**: Download modified data as a new `.parquet` file, or export to `SQL` (INSERT statements) and `JSON`[cite: 1].
+
+---
+
+## 🛠 Technical Architecture
+
+The tool is built on a "zero-configuration" stack, designed to be portable and efficient.
+
+### Dependencies
+The script includes an auto-bootstrap feature that ensures all requirements are met upon execution[cite: 1]:
+*   **Flask**: Lightweight web server for the UI and API[cite: 1].
+*   **PyArrow**: High-performance library for reading, writing, and manipulating Parquet tables[cite: 1].
+
+### Internal Logic
+1.  **State Management**: Modified rows are held in a secure in-memory store (`_store`) to ensure fast UI performance[cite: 1].
+2.  **Schema Retention**: The tool detects and preserves the original column schema and data types from the source file metadata[cite: 1].
+
+---
+
+## 📖 Quick Start Guide
 
 ### 1. Prerequisites
-Ensure you have **Python 3.8+** installed. No manual `pip install` commands are required for the primary dependencies.
+Ensure you have **Python 3.8+** installed.
 
 ### 2. Execution
 Run the script from your terminal:
@@ -48,27 +62,22 @@ python admin.py
 ```
 
 ### 3. Usage Steps
-*   **Upload**: Drag and drop your `.parquet` file into the browser window[cite: 1].
-*   **Search**: Use the search bar to narrow down the rows you wish to edit.
-*   **Edit**: Click on any value to modify it. Changes are captured when you click away (on blur).
-*   **Save**: Click **"Save (Overwrite Local)"** to apply your changes directly to the file in your current folder.
+*   **Upload**: Drag your file into the Step 1 area[cite: 1].
+*   **Edit**: Use the search bar to find a record, then click a cell to change its value[cite: 1].
+*   **Sync**: Click **"Save (Overwrite Local)"** to apply changes directly to your file instantly[cite: 1].
 
 ---
 
-## Technical Details for Engineers
+## 📑 Technical Summary
 
-| Feature | Description |
+| Feature | Specification |
 | :--- | :--- |
-| **Data Handling** | Uses `pyarrow.parquet` for high-performance I/O[cite: 1]. |
-| **Port Configuration** | Defaults to `http://localhost:5500`[cite: 1]. |
-| **SQL Generation** | Creates standard `INSERT INTO` statements based on the filename[cite: 1]. |
-| **JSON Export** | Formats data as an array of objects, preserving ISO dates[cite: 1]. |
-
-> **Note**: The tool currently saves the file to the current working directory (`os.getcwd()`) using the original filename when the "Save" function is triggered.
+| **Backend** | Python 3.x / Flask[cite: 1] |
+| **Engine** | Apache Arrow (PyArrow)[cite: 1] |
+| **I/O Operations** | Local file system overwrite support[cite: 1] |
+| **UI** | Embedded HTML/JavaScript with CSS Variables[cite: 1] |
 
 ---
 
-**Developed by CL Magno I.T. Solutions**
+**Developed by CL Magno I.T. Solutions**  
 *Precise code. Clear explanations.*
-
-Does this README cover everything you need for your learning portal, or would you like to add a specific section on the PyArrow schema handling?
